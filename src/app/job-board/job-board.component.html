@@ -1,0 +1,14 @@
+<div class="job-board">
+    <div class="job-card" *ngFor="let job of jobPosts" (click)="openJobLink(getCardUrl(job))">
+    <div class="job-header">
+        <span class="company-name">{{ getCompanyName(job.title) }}</span>
+        <span *ngIf="getYCTag(job.title)" class="yc-tag">{{ getYCTag(job.title) }}</span>
+    </div>
+    <div class="job-title">Is hiring...</div>
+    <div class="job-footer">
+        {{ job.time | date:'MMM d, y' }}
+    </div>
+    </div>
+
+    <button (click)="loadMoreJobs()" class="load-more">Load More</button>
+</div>
